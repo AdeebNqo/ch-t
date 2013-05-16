@@ -79,9 +79,9 @@ public class Main extends JDialog {
 				public void keyPressed(KeyEvent arg0) {
 					if (arg0.getKeyCode() == KeyEvent.VK_ENTER){
 						String tmp = username+" "+enter_text.getText();
-						System.out.println("tmp is "+tmp);
 						try {
 							out.writeUTF(tmp);
+							out.flush();
 						} catch (IOException e) {
 							e.printStackTrace();
 						}

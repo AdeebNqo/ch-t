@@ -14,8 +14,10 @@ public class Server {
 			clients = new Vector<DataOutputStream>();
 			ServerSocket ss = new ServerSocket(9999);
 			while(true){
-				clients.add(new Client(ss.accept()).out);
-				System.out.println("");
+				Client tmp_client = new Client(ss.accept());
+				clients.add(tmp_client.out);
+				tmp_client.start();
+				System.out.println(tmp_client.s.getInetAddress()+" now connected");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -44,7 +46,7 @@ public class Server {
 				try {
 					String tmp = in.readUTF();
 					for (DataOutputStream writer:clients){
-						writer.writeUTF(tmp+'\n');
+						writer.writeUTF(tmp);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
