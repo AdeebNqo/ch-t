@@ -40,7 +40,7 @@ public class Main extends JDialog {
 		try {
 			
 			File usname = new File("username");
-			Socket s = new Socket("127.0.0.1",9999);
+			Socket s = new Socket("137.158.59.46",9999);
 			
 			try{
 				Scanner usnamereader = new Scanner(new FileReader(usname));
