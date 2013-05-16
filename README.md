@@ -34,3 +34,6 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <http://unlicense.org/>
 
+##Additional
+This was made in a hurry, sorta --- When connecting, create a file titled
+'username' in the same directory as the client. The program will user the first line as the username. If the file does not exist, it will use the ip address as the username.
