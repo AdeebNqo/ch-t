@@ -12,16 +12,20 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
+
 import javax.swing.JTextArea;
 
 public class Main extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField enter_text;
-	private static String username = "adeebnqo$";
+	private static String username = "anon";
 	
 	private static DataInputStream in;
 	private static DataOutputStream out;
@@ -35,7 +39,22 @@ public class Main extends JDialog {
 	public static void main(String[] args) {
 		try {
 			
+			File usname = new File("username");
 			Socket s = new Socket("127.0.0.1",9999);
+			
+			try{
+				Scanner usnamereader = new Scanner(new FileReader(usname));
+				String tmp_usname = usnamereader.nextLine();
+				if (tmp_usname.equals("")){
+					username = s.getInetAddress().toString();
+				}
+				else{
+					username = tmp_usname;
+				}
+				usnamereader.close();
+			}catch(Exception e){
+				username = s.getInetAddress().toString();
+			}
 			out = new DataOutputStream(s.getOutputStream());
 			in = new DataInputStream(s.getInputStream());
 			
