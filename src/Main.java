@@ -46,14 +46,14 @@ public class Main extends JDialog {
 				Scanner usnamereader = new Scanner(new FileReader(usname));
 				String tmp_usname = usnamereader.nextLine();
 				if (tmp_usname.equals("")){
-					username = s.getInetAddress().toString();
+					username = sanitize(s.getInetAddress().toString());
 				}
 				else{
 					username = tmp_usname;
 				}
 				usnamereader.close();
 			}catch(Exception e){
-				username = s.getInetAddress().toString();
+				username = sanitize(s.getInetAddress().toString());
 			}
 			out = new DataOutputStream(s.getOutputStream());
 			in = new DataInputStream(s.getInputStream());
@@ -117,4 +117,11 @@ public class Main extends JDialog {
 		setVisible(true);
 	}
 
+	/*
+	 * 
+	 */
+	public static String sanitize(String someString){
+			someString = someString.substring(1);
+			return someString;
+	}
 }

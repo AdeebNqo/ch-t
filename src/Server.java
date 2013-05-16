@@ -50,6 +50,12 @@ public class Server {
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
+					try {
+						s.close();
+						interrupt();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+					}
 				}
 			}
 		}
