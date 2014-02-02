@@ -43,12 +43,16 @@ public class Server {
 		}
 		public void run(){
 			while(true){
+				int index =0;
 				try {
 					String tmp = in.readUTF();
 					for (DataOutputStream writer:clients){
 						writer.writeUTF(tmp);
+						++index;
 					}
 				} catch (IOException e) {
+					//remove the troublesome dude from the list of recipients
+					clients.remove(index);
 					e.printStackTrace();
 					try {
 						s.close();
