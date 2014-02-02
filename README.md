@@ -1,14 +1,20 @@
 ch^t
 ======
+pronounced \\chat\\
 
+
+
+-vers1.0:
 This is a chat client and server I made for me and my friends.
 This is made in Java and one of the reasons was to play around with
-"Look and Feel"s. The main reason I made, however, is procrastination.
+"Look and Feel"s.
 
-I use a great look and feel I downloaded, the licence of the look and feel uis in the file `LICENCE.txt`.
+-vers1.1
+The application is to be used for anonymous communication. It is no
+longer simply a way of communicating with friends.
+
 
 ###Licence
-#####for my code
 This is free and unencumbered software released into the public domain.
 
 Anyone is free to copy, modify, publish, use, compile, sell, or
@@ -35,5 +41,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 For more information, please refer to <http://unlicense.org/>
 
 ##Additional
-This was made in a hurry, sorta --- When connecting, create a file titled
-'username' in the same directory as the client. The program will user the first line as the username. If the file does not exist, it will use the ip address as the username.
+If I have used library or item X which does not belong to me, please
+see a file named LICENCE_x (The name after the word licence will be in lowercase) 
